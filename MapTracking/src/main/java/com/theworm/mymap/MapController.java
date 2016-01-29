@@ -37,7 +37,6 @@ public class MapController {
 	}
 	
 	@RequestMapping(value = "/addMap/{idmap}" , method = RequestMethod.GET)
-	@Scope(value="globalSession")
 	public String AddMap(Model model, HttpServletRequest session , @PathVariable(value = "idmap") int mapid){
 		
 		if (session.getAttribute("mapsSession") == null) {
