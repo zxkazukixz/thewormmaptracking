@@ -19,7 +19,7 @@
 			<th>LatitudeSession</th>
 			<th>quantity</th>
 		</tr>
-		<c:forEach var="it" items="${sessionScope.mapsSession}">
+		<c:forEach var="it" items="${maptracking}">
 			<tr>
 				<td>${it.map.name}</td>
 				<td>${it.map.longitude}</td>
@@ -29,12 +29,13 @@
 		</c:forEach>
 	</table>
 	<%
-				List<Item> map = (List<Item>) session.getAttribute("mapsSession");
+				List <Item> map = (List<Item>) session.getAttribute("mapsSession");
 				List<String> location = new ArrayList<String>();
 				for(int i = 0; i < map.size(); i+=1){
 					location.add(map.get(i).getMap().getLatitude());
 					application.setAttribute("latitude", location);
 				}
+				application.setAttribute("maptracking", map);
 	%>
 	
 </body>
